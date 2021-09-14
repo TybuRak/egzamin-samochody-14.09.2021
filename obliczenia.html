@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styl3.css">
+    <title>Stacja paliw</title>
+</head>
+<body>
+<div class="baner-lewy">
+    <h1>Stacja Paliw</h1>
+</div>
+<div class="baner-prawy">
+    <a href="stacja.html"><img src="home.png" alt="home"></a>
+    <a href="obliczenia.html"><img src="znak.png" alt="obliczenia"></a>
+</div>
+<main>
+    <h3>Oblicz koszt paliwa</h3>
+    <label for="rodzaj">Rodzaj paliwa (1-benzyna, 2-olej napędowy): </label>
+    <input type="number" id="rodzaj">
+    <label for="ilosc">Ile litrów</label>
+    <input type="number" id="ilosc">
+    <button id="oblicz">OBLICZ</button>
+    <p id="wynik"></p>
+</main>
+<div class="blok-lewy">
+    <a href="kwerendy.txt">Pobierz kwerendy</a>
+</div>
+<div class="blok-prawy">
+    <img src="samochod.png" alt="samochód">
+</div>
+<footer>
+    <p>Stronę opracował: Paweł Tyburski</p>
+</footer>
+<script>
+    document.getElementById("oblicz").addEventListener("click", function () {
+        let cena = parseInt(document.getElementById("ilosc").value, 10);
+        switch (parseInt(document.getElementById("rodzaj").value, 10)) {
+            case 1:
+                cena *= 4;
+                break;
+            case 2:
+                cena *= 3.5;
+                break;
+            default:
+                cena = 0;
+        }
+
+        document.getElementById("wynik").innerText = `koszt paliwa: ${cena} zł`;
+    });
+</script>
+</body>
+</html>
